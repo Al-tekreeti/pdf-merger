@@ -2,7 +2,7 @@ from PyPDF2 import PdfFileMerger
 from os import listdir
 
 """
-    The code expect that the pdf files are prefixed with numeric values to force the required order of merging, for example, the file doc_file.pdf should be renamed as 2-doc_file.pdf if it is required to merge it secondly.
+    The code expect that the pdf files are prefixed with numeric values to force the required order of merging, for example, the file doc_file.pdf may be renamed as 2-doc_file.pdf if it is required to merge it secondly.
 """
 
 filesDir = input("Please, input the absolute path of the pdf files' directory:")

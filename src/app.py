@@ -11,23 +11,18 @@ filesDir = input("Please, input the absolute path of the pdf files' directory:")
 if filesDir[-1] != '/':
     filesDir += '/'
 
-mergeList = []
-
 # exclude any non-pdf file
-for file in listdir(filesDir):
-    if not file.endswith('.pdf'):
-        continue
-    mergeList.append(filesDir + file)
+mergeList = [file for file in listdir(filesDir) if file.endswith('.pdf')]
+
+# sort the pdf files depending on the added numerical prefix
+mergeList.sort(key = lambda file: int(file.split('-')[0]))
 
 # get a merger object
 merger = PdfFileMerger()
 
-# sort the pdf files depending on the added numerical prefix
-sortedList = mergeList.sort(key = lambda file: int(file.split('-')[0]))
-
 # merge sequentially
 for file in sortedList:
-    merger.append(file)
+    merger.append(filesDir + file)
 
 merger.write(filesDir + "/merged_file.pdf") # the output
 merger.close()

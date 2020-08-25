@@ -21,7 +21,7 @@ mergeList.sort(key = lambda file: int(file.split('-')[0]))
 merger = PdfFileMerger()
 
 # merge sequentially
-for file in sortedList:
+for file in mergeList:
     merger.append(filesDir + file)
 
 merger.write(filesDir + "/merged_file.pdf") # the output

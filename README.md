@@ -8,10 +8,10 @@ First download the package `pdf-merger-0.0.1.tar.gz`. Then, using `pip` package 
 # Usage
 The code in `src\app.py` shows how to use the package to merge pdf files. The package is developed for Unix-like operating systems. When you run `app.py`:
  
- <code> python src/app.py<code/>
+<code> python src/app.py<code/>
  
- the following message is displayed to promot the user to input the absolute path of the pdf files directory:
+the following message is displayed to promot the user to input the absolute path of the pdf files directory:
  
- `Please, input the absolute path of the pdf files' directory:`
+`Please, input the absolute path of the pdf files' directory:`
  
- The output file from the merging process is located in the same directory of the input pdf files.
+The output file from the merging process is located in the same directory of the input pdf files.

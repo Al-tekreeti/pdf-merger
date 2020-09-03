@@ -1,1 +1,4 @@
 .venv/
+dist/
+pdf_merger.egg-info/
+src/__pycache__/

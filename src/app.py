@@ -1,5 +1,4 @@
-from PyPDF2 import PdfFileMerger
-from os import listdir
+from pdf_merger import PdfMerger as PDF
 
 """
     The code expect that the pdf files are prefixed with numeric values to force the required order of merging, for example, the file doc_file.pdf may be renamed as 2-doc_file.pdf if it is required to merge it secondly.
@@ -7,23 +6,8 @@ from os import listdir
 
 filesDir = input("Please, input the absolute path of the pdf files' directory:")
 
-# make sure that the entered path ends with /
-if filesDir[-1] != '/':
-    filesDir += '/'
+pdf = PDF(filesDir)
+output_file = pdf.pdf_merge()
 
-# exclude any non-pdf file
-mergeList = [file for file in listdir(filesDir) if file.endswith('.pdf')]
-
-# sort the pdf files depending on the added numerical prefix
-mergeList.sort(key = lambda file: int(file.split('-')[0]))
-
-# get a merger object
-merger = PdfFileMerger()
-
-# merge sequentially
-for file in mergeList:
-    merger.append(filesDir + file)
-
-merger.write(filesDir + "/merged_file.pdf") # the output
-merger.close()
-
+if __name__ == "__main__":
+    print(f"The output pdf file is {output_file}")
